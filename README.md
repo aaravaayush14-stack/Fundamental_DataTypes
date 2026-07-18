@@ -52,3 +52,23 @@ Overflow results in information being lost.
 Concept of integer divisions (eg: 8/5 results in 1; when both 8 and 5 are integers). The fractional part, even if it's 0.9
 will just get dropped off. Also, -8/5 would result in -1.6 but .6 is dropped so the answer is -1.
 ****************************************************************************************************************************
+CHAPTER 4.5 :
+Unsigned integers are integers that can only hold non-negative whole numbers. We use the 'unsigned' keyword to use unsigned
+integers, doubles, etc. Unsigned integers can store more "positive numbers" without taking up extra memory.
+
+Here, overflow doesn't have "Undefined Behaviour", but just divides the number by the (biggest size + 1) and returns the
+remainder. Example: An unsigned 8 bit int stores values from 0 to 255 (biggest size). You try to store 275 in it, which is
+>255. Therefore divide 275/255 which gives remainder 20, and this 20 is stored in the variable. This is called modulo wrap-around.
+If you type in 0; 0 will be stored. If you type in '-1'; 255 will be stored. If you type '-2'; 254 will be stored. And so
+on.......
+
+Problems with unsigned integers:
+1. First, with signed values, it takes a little work to accidentally overflow the top or bottom of the range because those values are far from 0. With unsigned numbers, it is much easier to overflow the bottom of the range, because the bottom of the range is 0, which is close to where the majority of our values are. (Take an eg: if you subtract 2-3, this gives -1, but all unsigned integers start with 0 to some power of 2 depending on bits ((2^n)-1), so it will modulo warp-around and will give unexpected results.)
+2. Second, and more insidiously, unexpected behavior can result when you mix signed and unsigned integers. In C++, if a mathematical operation (e.g. arithmetic or comparison) has one signed integer and one unsigned integer, the signed integer will usually be converted to an unsigned integer. And the result will thus be unsigned. (This is one more place where it would be irritating to get these modulo warp-around values.)
+
+ Avoid mixing signed and unsigned numbers. 
+ There might be some places though where these unsigned integers are required:
+ 1. Unsigned numbers are preferred when dealing with bit manipulation. They are also useful when well-defined wrap-around     behavior is required (useful in some algorithms like encryption and random number generation).
+ 2. use of unsigned numbers is still unavoidable in some cases, mainly those having to do with array indexing. We’ll talk     more about this in the lessons on arrays and array indexing.
+ 3. Use in embedded systems like Arduino.
+****************************************************************************************************************************
