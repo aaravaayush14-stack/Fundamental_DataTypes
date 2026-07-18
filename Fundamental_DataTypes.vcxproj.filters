@@ -13,5 +13,16 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Lessons_Ch4">
+      <UniqueIdentifier>{ff83de28-b2ce-494a-a328-c90d4488d478}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Lessons_Ch4\Lesson4_3.cpp">
+      <Filter>Lessons_Ch4</Filter>
+    </ClCompile>
+    <ClCompile Include="Lessons_Ch4\main.cpp">
+      <Filter>Lessons_Ch4</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
