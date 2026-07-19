@@ -72,3 +72,24 @@ Problems with unsigned integers:
  2. use of unsigned numbers is still unavoidable in some cases, mainly those having to do with array indexing. We’ll talk     more about this in the lessons on arrays and array indexing.
  3. Use in embedded systems like Arduino.
 ****************************************************************************************************************************
+CHAPTER 4.6 :
+Usually the width of a data type like int might not be fixed. For example: int could be 16 bits on 1 computer architecture while 32 bits on some other. In most cases, we only instantiate a small number of int variables at a time, and these are typically destroyed at the end of the function in which they are created. In such cases, wasting 2 bytes of memory per variable isn’t a concern. However, on bigger systems and programs, using millions of int values could significantly alter the program's memory usage.
+
+Concept of Fixed_Width integers: You have to use "# include <cstdint>" to include these fixed width integers. You can use a fixed_width integer whenever you want to use integers of fixed size.
+WARNING! The 8-bit fixed-width integer types are often treated like chars instead of integer values (and this may vary per system). The 16-bit and wider integral types are not subject to this issue.
+
+Downsides of using fixed width integers:
+1. The fixed-width integers are not guaranteed to be defined on all architectures. Your program will fail to compile on any such architecture that does not support a fixed-width integer that your program is using. This is unlikely to be a problem though unless your program needs to be portable to some exotic mainframe or embedded architectures.
+2. If you use a fixed-width integer, it may be slower than a wider type on some architectures. For example, if you need an integer that is guaranteed to be 32-bits, you might decide to use std::int32_t, but your CPU might actually be faster at processing 64-bit integers.
+Although these are very minor downsides and shouldn't bother you much.
+
+Learn the concept of fast and least integral types.
+std::int_fast#_t gives the signed int of atleast '#' size which is "fast"!
+std::int_fast#_t gives the signed int of atleast '#' bits which is "least size"!
+
+Downsides: First, not many programmers actually use them, and a lack of familiarity can lead to errors. Then the fast types can also lead to memory wastage, as their actual size may be significantly larger than indicated by their name.
+Avoid the fast and least integral types because they may exhibit different behaviors on architectures where they resolve to different sizes.
+
+std::size_t is an alias for an implementation-defined unsigned integral type. It is used within the standard library to represent the byte-size or length of objects. You have to include <cstddef> header on top of your file to use it.
+The size of std::size_t imposes a strict mathematical upper limit on an object’s size. In practice, the largest creatable object may be smaller than this amount (perhaps significantly so).
+****************************************************************************************************************************
