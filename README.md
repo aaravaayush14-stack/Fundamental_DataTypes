@@ -93,3 +93,22 @@ Avoid the fast and least integral types because they may exhibit different behav
 std::size_t is an alias for an implementation-defined unsigned integral type. It is used within the standard library to represent the byte-size or length of objects. You have to include <cstddef> header on top of your file to use it.
 The size of std::size_t imposes a strict mathematical upper limit on an object’s size. In practice, the largest creatable object may be smaller than this amount (perhaps significantly so).
 ****************************************************************************************************************************
+LESSON 4.7 :
+Scientific notation is a useful shorthand for writing lengthy numbers in a concise manner. Scientific notation is a useful shorthand for writing lengthy numbers in a concise manner. The more digits in the significand, the more precise a number is.
+****************************************************************************************************************************
+LESSON 4.8 :
+Floating point data types: float (4 bytes), double (8 bytes), long double (8,12 or 16 bytes).
+If you use 5.0 (It is most likely a double), if you use 5.0f (It definitely means float), and if you use 5.00f (for 2 decimal places precision). The precision of a floating point type defines how many significant digits it can represent without information loss.
+A floating point type can only precisely represent a certain number of significant digits. Using a value with more significant digits than the minimum may result in the value being stored inexactly.
+
+When outputting floating point numbers, std::cout has a default precision of 6 -- that is, it assumes all floating point variables are only significant to 6 digits (the minimum precision of a float), and hence it will truncate anything after that.
+
+We can override the default precision that std::cout shows by using an output manipulator function named std::setprecision(). Output manipulators alter how data is output, and are defined in the <iomanip> header.
+
+Output manipulators (and input manipulators) are sticky -- meaning if you set them, they will remain set.
+The one exception is std::setw. Some IO operations reset std::setw, so std::setw should be used every time it is needed.
+The precision is impacted for float in the std::setprecision(). Examples will be discussed in the code. It also causes errors for too many significant digits.
+
+Floating point comparisions can be quite risky, specially in financial data as it doesn't store the exact value what is intended, due to rounding errors.
+inf means infinity and NaN means 'Not a Number'. Avoid division by 0.0, even if your compiler supports it.
+****************************************************************************************************************************
