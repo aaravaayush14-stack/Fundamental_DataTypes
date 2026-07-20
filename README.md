@@ -112,3 +112,13 @@ The precision is impacted for float in the std::setprecision(). Examples will be
 Floating point comparisions can be quite risky, specially in financial data as it doesn't store the exact value what is intended, due to rounding errors.
 inf means infinity and NaN means 'Not a Number'. Avoid division by 0.0, even if your compiler supports it.
 ****************************************************************************************************************************
+CHAPTER 4.9 :
+Boolean variables are variables that can have only two possible values: true, and false.
+logical NOT operator (!) can be used to flip a Boolean value from true to false, or false to true. std::cout prints 0 for false and 1 for true. 
+
+Then how are we gonna print true/false? We use "std::boolalpha". It doesn't print anything on using it with cout, but it changes the way cout prints true/false. Now it actually prints 'true' for true and 'false' for false instead of 1 and 0 respectively. It's basically a modifier. You use "std::noboolalpha" to turn off this modifier. 
+
+By default, std::cin only accepts numeric input for Boolean variables: 0 is false, and 1 is true. Any other numeric value will be interpreted as true, and will cause std::cin to enter failure mode. Any non-numeric value will be interpreted as false and will cause std::cin to enter failure mode. To allow std::cin to accept the words false and true as inputs, you must first input to std::boolalpha. (std::cin >> std::boolalpha).
+
+Boolean values are often used as the return values for functions that check whether something is true or not. Such functions are typically named starting with the word is (e.g. isEqual) or has (e.g. hasCommonDivisor).
+****************************************************************************************************************************
