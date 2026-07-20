@@ -122,3 +122,10 @@ By default, std::cin only accepts numeric input for Boolean variables: 0 is fals
 
 Boolean values are often used as the return values for functions that check whether something is true or not. Such functions are typically named starting with the word is (e.g. isEqual) or has (e.g. hasCommonDivisor).
 ****************************************************************************************************************************
+CHAPTER 4.10 :
+An if statement allows us to execute one (or more) lines of code only if some condition is true. You can use if-else statement for general purpose when you want to check for two opposing conditions (mostly). Unlike python, we can't use elif but there is something else in C++; "else if". It generally takes boolean as inputs, but can also take non-boolean inputs.
+
+eg: if (x) -> Means that if x is non-zero/non-empty. (Generally it is true/false).
+
+Early return is a concept where based on a condition, the desired value can be acquired way before the original return statement is encountered!
+****************************************************************************************************************************
