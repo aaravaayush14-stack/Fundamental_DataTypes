@@ -28,6 +28,7 @@
     <ClCompile Include="Lessons_Ch4\Lesson4_9.cpp" />
     <ClCompile Include="Lessons_Ch4\main.cpp" />
     <ClCompile Include="Lessons_Ch4\Lesson4_10.cpp" />
+    <ClCompile Include="Lessons_Ch4\Quiz4.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>18.0</VCProjectVersion>
