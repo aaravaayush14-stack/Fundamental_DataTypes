@@ -42,5 +42,8 @@
     <ClCompile Include="Lessons_Ch4\Lesson4_11.cpp">
       <Filter>Lessons_Ch4</Filter>
     </ClCompile>
+    <ClCompile Include="Lessons_Ch4\Lesson4_12.cpp">
+      <Filter>Lessons_Ch4</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
