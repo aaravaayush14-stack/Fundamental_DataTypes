@@ -139,12 +139,12 @@ Because extracting input ignores leading whitespace, this can lead to unexpected
 Char is defined by C++ to always be 1 byte in size. By default, a char may be signed or unsigned (though it’s usually signed).
 There are some sequences of characters in C++ that have special meaning. These characters are called escape sequences. An escape sequence starts with a ‘\’ (backslash) character, and then a following letter or number.
 
-\n -> new line
-\t -> tab
-\\ -> backslash character
-\' -> single quote
-\" -> double quote
-\? -> question mark
+1. \n -> new line
+2. \t -> tab
+3. \\ -> backslash character
+4. \' -> single quote
+5. \" -> double quote
+6. \? -> question mark
 And many more...............
 
 'A' means a character and "A" usually means a string. Also, avoid using multi-character literals.
