@@ -129,3 +129,23 @@ eg: if (x) -> Means that if x is non-zero/non-empty. (Generally it is true/false
 
 Early return is a concept where based on a condition, the desired value can be acquired way before the original return statement is encountered!
 ****************************************************************************************************************************
+CHAPTER 4.11 :
+The char data type was designed to hold a single character. A character can be a single letter, number, symbol, or whitespace. You can initialize char with char x{---}; Where --- is a single character (eg: 'a') or any integer which gets replaced by the corresponding ASCII Value (eg: 97 stands for 'a'). 
+
+Note that while accepting input from std::cin >> , it lets you input multiple characters. But, say you eneterd 'bdac', it will just extract the 'b' and leave out 'dac' part. This results in just 'b' being printed. This 'dac' part is left in the stream. If you again accept any character; this 'dac' part is used as it was in the stream and 'd' will be extracted; you can't even take input till this input buffer ends. (This is the buffering action of std::cin). 
+
+Because extracting input ignores leading whitespace, this can lead to unexpected results when trying to extract whitespace characters to a char variable. For eg: Yout type in 'a b', you might expect that you get 'a', ' ', 'b' but instead you just get 'a' and 'b'. ' ' Is ignored. You need to use std::cin.get() to not ignore this space. 
+
+Char is defined by C++ to always be 1 byte in size. By default, a char may be signed or unsigned (though it’s usually signed).
+There are some sequences of characters in C++ that have special meaning. These characters are called escape sequences. An escape sequence starts with a ‘\’ (backslash) character, and then a following letter or number.
+
+\n -> new line
+\t -> tab
+\\ -> backslash character
+\' -> single quote
+\" -> double quote
+\? -> question mark
+And many more...............
+
+'A' means a character and "A" usually means a string. Also, avoid using multi-character literals.
+****************************************************************************************************************************
