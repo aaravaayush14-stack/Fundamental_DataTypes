@@ -145,7 +145,7 @@ There are some sequences of characters in C++ that have special meaning. These c
 4. \' -> single quote
 5. \" -> double quote
 6. \? -> question mark
-And many more...............
+7. And many more...............
 
 'A' means a character and "A" usually means a string. Also, avoid using multi-character literals.
 ****************************************************************************************************************************
