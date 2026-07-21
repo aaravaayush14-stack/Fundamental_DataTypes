@@ -149,3 +149,17 @@ There are some sequences of characters in C++ that have special meaning. These c
 
 'A' means a character and "A" usually means a string. Also, avoid using multi-character literals.
 ****************************************************************************************************************************
+CHAPTER 4.12 :
+The process of converting data from one type to another type is called type conversion. By default, floating point values whose decimal part is 0 print without the decimal places (e.g. 5.0 prints as 5). When the compiler does type conversion on our behalf without us explicitly asking, we call this "implicit type conversion".
+
+Say a function requires a double parameter. When we pass say '5' into this function; 5 is transformed into a 'temporary object' of '5.0' and used further. Some advanced type conversions (e.g. those involving const_cast or reinterpret_cast) do not return temporary objects, but instead reinterpret the type of an existing value or object. Let's say a function requires an int parameter and you pass on '5.5'; if you haven't turned off 'Treat warnings as errors'; It would show an error but if you have switched it off, It will lose the .5 precision and pass on 5.
+
+Brace initialization will ensure we don’t try to initialize a variable with an initializer that will lose value when it is implicitly type converted. 
+
+"Explicit type conversion" allow us (the programmer) to explicitly tell the compiler to convert a value from one type to another type, and that we take full responsibility for the result of that conversion. If such a conversion results in the loss of value, the compiler will not warn us.
+
+static_cast takes the value from an expression as input, and returns that value converted into the type specified by new_type (e.g. int, bool, char, double). Signed integral values can be converted to unsigned integral values, and vice-versa, using a static cast. If you want to ensure that a std::int8_t or std::uint8_t object is treated as an integer, you can convert the value to an integer using static_cast. 
+
+Take an example code in Lesson4_12 for demonstrating this example:
+When std::int8_t is treated as a char, the input routines interpret our input as a sequence of characters, not as an integer. So when we enter 35, we’re actually entering two chars, '3' and '5'. Because a char object can only hold one character, the '3' is extracted (the '5' is left in the input stream for possible extraction later). Because the char '3' has ASCII code point 51, the value 51 is stored in myInt, which we then print later as an int.
+****************************************************************************************************************************
